@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal</title>
+</head>
+<h1> ZWIERZ NUMER 1</h1>
+<body>
+
+<table BORDER="green">
+    <tr>
+        <td>Typ</td>
+        <td th:text="${animal.typ}"> </td>
+    </tr>
+
+    <tr>
+        <td>Płeć</td>
+        <td th:text="${animal.plec}"> </td>
+    </tr>
+
+    <tr>
+        <td>Imię</td>
+        <td th:text="${animal.imie}"> </td>
+    </tr>
+
+    <tr>
+        <td>Wiek</td>
+        <td th:text="${animal.wiek}"> </td>
+    </tr>
+
+    <tr>
+        <td>Masa</td>
+        <td th:text="${animal.masa}"> </td>
+    </tr>
+
+    <tr>
+        <td>Czy Szczepiony</td>
+        <td th:text="${animal.czySzczepiony}"> </td>
+    </tr>
+
+
+</table>
+
+
+
+</body>
+
+</html>
