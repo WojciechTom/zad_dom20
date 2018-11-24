@@ -3,45 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title>Animal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style type="text/css">
+
+        .itemHeader{
+            grid-area: header;
+            background: black;
+            display: flex;
+        }
+
+        .container{
+            display: grid;
+            grid-template-columns: 100px auto auto 100px;
+            grid-template-rows: auto ;
+            grid-template-areas:
+                    "header header header header"
+                    "sidebarL text2 text3 sidebarR"
+                    "sidebarLD text4 text4 sidebarRD";
+        }
+
+        .itemText2{
+            grid-area: text2;
+            /*background: white;*/
+            margin-right: 10px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            padding: 20% 0;
+        }
+
+
+    </style>
+
+
 </head>
-<h1> ZWIERZ NUMER 1</h1>
+
 <body>
 
-<table BORDER="green">
-    <tr>
-        <td>Typ</td>
-        <td th:text="${animal.typ}"> </td>
-    </tr>
+<div class="container">
 
-    <tr>
-        <td>Płeć</td>
-        <td th:text="${animal.plec}"> </td>
-    </tr>
-
-    <tr>
-        <td>Imię</td>
-        <td th:text="${animal.imie}"> </td>
-    </tr>
-
-    <tr>
-        <td>Wiek</td>
-        <td th:text="${animal.wiek}"> </td>
-    </tr>
-
-    <tr>
-        <td>Masa</td>
-        <td th:text="${animal.masa}"> </td>
-    </tr>
-
-    <tr>
-        <td>Czy Szczepiony</td>
-        <td th:text="${animal.czySzczepiony}"> </td>
-    </tr>
+    <div class="itemHeader">
+        <div class="tytul" style="margin-left: 5%">
+            <h1 style="font-size: 300%; color: white; font-style: italic; padding: 15% 0; line-height: 1px"> OTO ZWIERZ <span style=" font-family: Cambria; font-size: 30%"><br>  </span> </h1>
+        </div>
+    </div>
 
 
-</table>
+    <div class="itemText2">
+    <table BORDER="green">
+        <tr>
+            <td>Typ</td>
+            <td th:text="${animal.typ}"> </td>
+        </tr>
 
+        <tr>
+            <td>Płeć</td>
+            <td th:text="${animal.plec}"> </td>
+        </tr>
 
+        <tr>
+            <td>Imię</td>
+            <td th:text="${animal.imie}"> </td>
+        </tr>
+
+        <tr>
+            <td>Wiek</td>
+            <td th:text="${animal.wiek}"> </td>
+        </tr>
+
+        <tr>
+            <td>Masa</td>
+            <td th:text="${animal.masa}"> </td>
+        </tr>
+
+        <tr>
+            <td>Czy Szczepiony</td>
+            <td th:text="${animal.czySzczepiony}"> </td>
+        </tr>
+    </table>
+    </div>
+
+</div>
 
 </body>
 

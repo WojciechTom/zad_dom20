@@ -17,7 +17,7 @@
 
         .container{
             display: grid;
-            grid-template-columns: 100px auto auto 100px;
+            grid-template-columns: 50px auto auto 50px;
             grid-template-rows: auto ;
             grid-template-areas:
                     "header header header header"
@@ -28,10 +28,19 @@
         .itemText2{
             grid-area: text2;
             /*background: white;*/
-            margin-right: 10px;
+            margin-right: 30%;
             margin-bottom: 10px;
             margin-top: 20px;
-            padding: 20% 0;
+            padding: 10% 0;
+        }
+
+
+        .itemText3{
+            grid-area: text3;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            /*margin-top: 20px;*/
+            padding: 5% 0;
         }
 
 
@@ -51,8 +60,8 @@
 
         <div class="grid-item-2" role="group" aria-label="Basic example" style="background: black; padding: 3%; margin-left: 12%">
             <a th:href="@{/add}" class="btn btn-secondary" target="_self" style="margin-right: 10px">DODAJ ZWIERZA</a>
-            <a href="www.yachtworld.com" class="btn btn-secondary" target="_black" style="margin-right: 10px">ZNAJDŹ ZWIERZA</a>
-            <a href="www.yachtworld.com" class="btn btn-secondary" target="_black" style="margin-right: 10px">POMOC DLA ZWIERZA</a>
+            <a th:href="@{/help}" class="btn btn-secondary" target="_self" style="margin-right: 10px">ZNAJDŹ ZWIERZA</a>
+            <a th:href="@{/help}" class="btn btn-secondary" target="_self" style="margin-right: 10px">POMOC DLA ZWIERZA</a>
         </div>
     </div>
 
@@ -60,29 +69,43 @@
 
 
 
-    <!--<div class="itemText2">-->
+    <div class="itemText2">
         <table BORDER="green" >
 
             <tr align="center">
                 <td width="10%">IMIE</td>
-                <td width="10%">GATUNEK</td>
+                <td width="10%"> GATUNEK</td>
+            </tr>
+
+            <tr align="center">
+                <td width="10%">
+                    <select  name="TYP" th:onchange="@{'/filtr?typ=' + ${typ} + '&imie=All'}">
+                        <option th:each="typ:${animalTypList}" th:text="${typ}"></option>
+                    </select>
+                </td>
+
+                <td width="10%">
+                    <select name="IMIE">
+                        <option th:each="imie:${animalNameList}" th:text="${imie}" th:value="${imie}" ></option>
+                    </select>
+                </td>
             </tr>
 
             <tr th:each="animal:${animalList}" align="center">
                 <td th:text="${animal.typ}"></td>
                 <td>
-                    <a th:href="@{/show}" target="_self"><p th:text="${animal.imie}"></p></a>
+                    <a th:href="@{'/show?imie='+${animal.imie} }" target="_self"><p th:text="${animal.imie}"></p></a>
                 </td>
             </tr>
 
         </table>
-    <!--</div>-->
-
-
-    <div class="itemText2">
-
-
     </div>
+
+
+    <div class="itemText3">
+        <img th:src="@{/foto/kotpies.jpg}"/>
+    </div>
+
 
 
 
